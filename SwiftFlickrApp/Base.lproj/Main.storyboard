@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6154.17" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="WKy-gG-nW7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6154.17" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="lgq-5A-63J">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6153.11"/>
     </dependencies>
@@ -28,6 +28,9 @@
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fkL-bR-hZ8">
                                             <rect key="frame" x="0.0" y="0.0" width="261" height="250"/>
+                                            <variation key="widthClass=compact" misplaced="YES">
+                                                <rect key="frame" x="0.0" y="0.0" width="250" height="208"/>
+                                            </variation>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -40,7 +43,6 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="photoImageView" destination="fkL-bR-hZ8" id="huI-18-3XL"/>
-                                    <segue destination="3LG-3c-6jG" kind="show" identifier="ShowPhoto" id="zeQ-RA-FFo"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -66,52 +68,75 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qyK-yW-Ayu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1007" y="526"/>
+            <point key="canvasLocation" x="892.5" y="510"/>
         </scene>
         <!--Photo View Controller-->
-        <scene sceneID="iIX-q0-5De">
+        <scene sceneID="kNF-wb-o2I">
             <objects>
-                <viewController id="3LG-3c-6jG" customClass="PhotoViewController" customModule="SwiftFlickrApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PhotoViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="sW5-VG-U0a" customClass="PhotoViewController" customModule="SwiftFlickrApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="GTM-Sz-2RD"/>
-                        <viewControllerLayoutGuide type="bottom" id="kgh-JE-21K"/>
+                        <viewControllerLayoutGuide type="top" id="nOn-9g-7bl"/>
+                        <viewControllerLayoutGuide type="bottom" id="be2-GG-OEe"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kvf-zg-pvD">
+                    <view key="view" opaque="NO" contentMode="scaleToFill" id="HZ2-3S-dd4">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FaX-X4-tTv">
-                                <rect key="frame" x="0.0" y="64" width="480" height="150"/>
-                            </imageView>
+                            <view autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="71A-R8-tfO">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <subviews>
+                                    <view autoresizesSubviews="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="infinite" translatesAutoresizingMaskIntoConstraints="NO" id="nW0-fs-Y4u" customClass="SWTitleView" customModule="SwiftFlickrApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="0.029999999999999999" colorSpace="calibratedRGB"/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="30" y="65" width="260" height="45"/>
+                                        </variation>
+                                    </view>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DOF-7c-pnV">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="30" y="109" width="260" height="215"/>
+                                        </variation>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.70196080207824707" green="0.70196080207824707" blue="0.70196080207824707" alpha="0.0" colorSpace="calibratedRGB"/>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="nW0-fs-Y4u"/>
+                                        <exclude reference="DOF-7c-pnV"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                    <mask key="subviews">
+                                        <include reference="nW0-fs-Y4u"/>
+                                        <include reference="DOF-7c-pnV"/>
+                                    </mask>
+                                </variation>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="71A-R8-tfO"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="71A-R8-tfO"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
-                        <outlet property="photoImageView" destination="FaX-X4-tTv" id="3L8-dT-OkG"/>
+                        <outlet property="photoImageView" destination="DOF-7c-pnV" id="wvA-RJ-Uuq"/>
+                        <outlet property="titleView" destination="nW0-fs-Y4u" id="Q6k-3W-3Vu"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2R3-C6-nqM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bg1-SL-K87" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1533" y="526"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Mml-lK-8sd">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WKy-gG-nW7" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8vT-Jt-rIw">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="lgq-5A-63J" kind="relationship" relationship="rootViewController" id="y1K-oI-I5G"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Puv-9x-uXq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="315" y="526"/>
+            <point key="canvasLocation" x="1461" y="517"/>
         </scene>
     </scenes>
 </document>

@@ -14,15 +14,17 @@ enum LayoutType: Int
     case List = 1
 }
 
-class ViewController: UICollectionViewController
+class ViewController: UICollectionViewController, UICollectionViewDataSource, UICollectionViewDelegate
 {
     var photos:Dictionary<String, String>[] = []
     var layoutType = LayoutType.Grid
+    let transManager : TransitionManager = TransitionManager()
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         getFlickrPhotos()
+        
     }
 
     override func didReceiveMemoryWarning()
@@ -127,5 +129,17 @@ class ViewController: UICollectionViewController
             photoViewController.photoInfo = photoCell.photoInfo
         }
     }
+    
+    override func collectionView(collectionView: UICollectionView!, didSelectItemAtIndexPath indexPath: NSIndexPath!)
+    {
+        let imageInspector : PhotoViewController = self.storyboard.instantiateViewControllerWithIdentifier("PhotoViewController") as PhotoViewController
+        let cell : PhotoCell = collectionView.cellForItemAtIndexPath(indexPath) as PhotoCell
+        imageInspector.photoInfo = cell.photoInfo
+        imageInspector.transitioningDelegate = self.transManager
+        imageInspector.modalPresentationStyle = UIModalPresentationStyle.Custom;
+        self.presentViewController(imageInspector, animated: true, completion: {})
+    }
+    
+    
 }
 
