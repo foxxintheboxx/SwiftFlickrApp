@@ -44,7 +44,7 @@ class SWTitleView : UIView, UIScrollViewDelegate
     init(coder aDecoder: NSCoder!) {
         super.init(coder: aDecoder)
         scrollView.delegate = self
-        scrollView.showsHorizontalScrollIndicator = true
+        scrollView.showsHorizontalScrollIndicator = false
         scrollView.scrollEnabled = true
         scrollView.scrollsToTop = false
         scrollView.setTranslatesAutoresizingMaskIntoConstraints(false)
